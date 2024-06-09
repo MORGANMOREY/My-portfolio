@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+body {
+    font-family: 'Press Start 2P', cursive;
+    background-color: #333;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+header {
+    background: #ff6600;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+header h1 {
+    margin: 0;
+    color: #fff;
+    text-shadow: 2px 2px 0px #000;
+    animation: glitch 1s infinite;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 10px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 14px;
+    position: relative;
+}
+
+nav ul li a::before {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background-color: #fff;
+    transition: width 0.3s ease-in-out;
+}
+
+nav ul li a:hover::before {
+    width: 100%;
+}
+
+.game-container {
+    background: url('background.png') repeat-x;
+    animation: scrollBackground 30s linear infinite;
+    padding-top: 60px;
+    position: relative;
+    overflow: hidden;
+}
+
+@keyframes scrollBackground {
+    from { background-position: 0 0; }
+    to { background-position: -10000px 0; }
+}
+
+.scene {
+    padding: 20px;
+    margin: 10px auto;
+    background: #fff;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 800px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 1;
+}
+
+.scene h2 {
+    margin-top: 0;
+    animation: glitch 1s infinite;
+}
+
+.project {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.project img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.character {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-image: url('character.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    animation: moveCharacter 10s linear infinite;
+}
+
+@keyframes moveCharacter {
+    0% { left: -100px; }
+    100% { left: calc(100% + 100px); }
+}
+
+@keyframes glitch {
+    0% { text-shadow: 2px 2px 0px #000; }
+    25% { text-shadow: -2px -2px 0px #ff0000; }
+    50% { text-shadow: 2px 2px 0px #00ff00; }
+    75% { text-shadow: -2px -2px 0px #0000ff; }
+    100% { text-shadow: 2px 2px 0px #000; }
+}
